@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>AdventureGear</title>
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
+	<link rel="stylesheet" href="C:/NCI\NCI Lectures\Web Development\bootstrap download\bootstrap-5.3.8-dist\css\bootstrap.css">
+	<script type="text/Javascript" src="C:\NCI\NCI Lectures\Web Development\bootstrap download\bootstrap-5.3.8-dist\js\bootstrap.js"></script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="CSS/mainAndNav.css">
+	<link rel="stylesheet" href="CSS/products.css">
+	<script type="text/Javascript" src="JS/productModel.js"></script>
+	<script type="text/Javascript" src="JS/productController.js"></script>
+	<script type="text/Javascript" src="JS/productsView.js"></script>
+	<link rel="stylesheet" href="CSS/bannerAnimation.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row announcement text-center">
+			<div class="col text">
+				<span>Welcome to AdventureGear Co. New users have 20% off discount.</span>
+			</div>
+		</div>
+
+		<div class="row banner">
+			<div class="container-fluid">
+				<div class="row bg-body-tertiary" style="--bs-bg-opacity: .5;" >
+					<nav class="navbar navbar-expand-sm" data-bs-theme="light">
+						<div class="container-fluid text-primary justify-content-center align-items-top;">
+													
+							<a class="navbar-brand" href="#">AG</a>
+														
+							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+
+							<div class="fixed-position">
+								<div>
+									<button class="btn btn-outline-success"> Login </button>
+								</div>
+								<div>
+									<button class="btn btn-outline-success"> Cart </button>
+								</div>
+							</div>
+							<div class="collapse navbar-collapse flex-wrap" id="navbarSupportedContent">
+								<ul class="navbar-nav me-auto mb-sm-2 mb-lg-1">
+									<li class="nav-item">
+										<a class="nav-link" aria-current="page" href="index.html">Home</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" aria-current="page" href="#">Products</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="contact.html">Contact Us</a>
+									</li>
+								</ul>
+								<form class="d-flex" role="search">
+									<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+									<button class="btn btn-outline-success" type="submit">Search</button>
+								</form>
+
+							</div>		
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+
+		<hr class="first_hr">
+
+		<main>
+			<div class="container-fluid text-center">
+				<div class="row align-items-center justify-content-center category py-2">
+					<h1 class="col-12 product-category-header">
+						All
+					</h1>
+				</div>
+				<div class="row justify-content-between py-2 ">
+					<div class="col-6 col-sm-5 col-lg-3 align-items-center d-flex gap-1 order_filter text-start">
+						<label class="w-100">Sort by </label>
+						<select id="sort" class="form-select form-select-sm mb-0" size="1" aria-label="sort select">
+							<option value="default">default</option>
+							<option value="ascendByPrice">Price from low to high</option>
+							<option value="descendByPrice">Price from high to low</option>
+							<option value="ascendByDate">Date old to new</option>
+							<option value="descendByDate">Date new to old</option>
+						</select>
+					</div>
+					<div class="col-6 col-sm-5 col-lg-3 filter text-end">
+						<button class="btn bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter" aria-controls="offcanvasFilter">
+							Filter
+							<svg width="50" height="40" viewbox="0 0 100 100">
+								<path d="M10 25 H90 M10 50 H90 M10 75 H90" style="fill:none;stroke:black;stroke-width:3" />
+								<circle cx="40" cy="25" r="6" stroke="black" stroke-width="4" fill="black" />
+								<circle cx="75" cy="50" r="6" stroke="black" stroke-width="4" fill="black" />
+								<circle cx="30" cy="75" r="6" stroke="black" stroke-width="4" fill="black" />
+							</svg>
+						</button>
+						
+						<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasFilter" aria-labelledby="offcanvasExampleLabel">
+							<div class="offcanvas-header">
+								<h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+							</div>
+							<div class="offcanvas-body text-start">
+								<dl>
+								<dd>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<input class="form-check-input me-1" type="checkbox" value="" id="filter-all-select">
+											<label class="form-check-label stretched-link" for="filter-all-select">Select / Unselect All</label>
+										</li>
+									</ul>
+								</dd>
+								</dl>
+								<dl>
+									<dt>Price Range</dt>
+									<dd>
+										<div class="container-fluid overflow-hidden" style="border: 1px solid black;">									
+											<div class="row">
+												<output for="rangeLow" id="lowPrice" aria-hidden="true"></output>
+											</div>
+											<div class="row">
+												<input class="p-1" type="range" class="form-range" min="0" max="100" id="rangeLow">
+											</div>	
+											<div class="row p-2">
+											</div>
+											<div class="row">
+												<output for="rangeHigh" id="hightPrice" aria-hidden="true"></output>
+											</div>
+											<div class="row">
+												<input class="p-1" type="range" class="form-range" min="0" max="100" id="rangeHigh">
+											</div>	
+										</div>
+									</dd>
+								</dl>		
+								<dl id="filter-availability">
+									<dt>Availability</dt>
+									<dd>
+										<ul class="list-group">
+											<li class="list-group-item">
+												<input class="form-check-input me-1" type="checkbox" value="" id="filter-availability-1">
+												<label class="form-check-label stretched-link" for="filter-availability-1">In stock</label>
+											</li>
+											<li class="list-group-item">
+												<input class="form-check-input me-1" type="checkbox" value="" id="filter-availability-2">
+												<label class="form-check-label stretched-link" for="filter-availability-2">Out of stock</label>
+											</li>
+										</ul>
+									</dd>
+								</dl>
+								
+								<template id="filterListTemplate">
+									
+										<li class="list-group-item">
+											<input class="form-check-input me-1" type="checkbox" value="">
+											<label class="form-check-label stretched-link">Label</label>
+										</li>
+									
+								</template>
+								<dl id="filter-gender">
+									<dt>Gender</dt>
+									<dd>
+										<ul class="list-group"></ul>
+									</dd>
+								</dl>
+								<dl id="filter-size">
+									<dt>Size</dt>
+									<dd>
+										<ul class="list-group"></ul>
+									</dd>
+								</dl>
+								<dl id="filter-color">
+									<dt>Color</dt>
+									<dd>
+										<ul class="list-group"></ul>
+									</dd>
+								</dl>
+								<dl id="filter-discount">
+									<dt>Discount</dt>
+									<dd>
+										<ul class="list-group"></ul>
+									</dd>
+								</dl>
+								<dl id="filter-brand">
+									<dt>Brand</dt>
+									<dd>
+										<ul class="list-group"></ul>
+									</dd>
+								</dl>
+								<dl id="filter-date">
+									<dt>Date</dt>
+									<dd>
+										<ul class="list-group"></ul>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="row align-items-start justify-content-between py-3">
+					<div class="col-3 sidebar">
+						<ul class="category">
+							<li class="category-item active" data-category-id="all">All</li>
+							<li class="category-item" data-category-id="apparel">Apparel</li>
+							<li class="category-item" data-category-id="footware">Footware</li>
+							<li class="category-item" data-category-id="gear">Gear</li>
+						</ul>
+					</div>
+					<div class="col-9 product_content">
+						<template id="productTemplate">
+							<div class="product_item">
+								<div class="card">
+									<img src="./images/products/tmp-hiking1.webp" class="card-img-top" alt="Should be the product image.">
+									<div class="card-body p-1">
+										<h5 class="name">Product's Name<p>Paragraph Text</p></h5>
+										<p class="card-text size mb-1"><span>Size: </span>sizeValue</p>
+										<p class="card-text price mb-1"><span>€</span>price</p>
+									</div>
+								</div>
+							</div>
+						</template>
+						<div id="product_list" class="grid_container">
+						</div>
+						<div class="page_navigation">
+							<nav aria-label="Page navigation example">
+								<ul class="pagination">
+
+									<template id="pageTemplate">
+										<li class="page-item">
+											<a class="page-link" href="#" data-nav-page="1">1</a>
+										</li>
+									</template>
+
+									<li class="page-item">
+										<a class="page-link" href="#" aria-label="Previous" data-nav-page="pre">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="#" aria-label="Next" data-nav-page="next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<hr>
+		<div class="row my-3">
+		<footer class="text-center">
+			<p>Designed by Xuquan Deng for assignment of education.</p>
+			<a href="credits.html">Photo Credits</a>
+		</footer>
+		</div>
+	</div>
+</body>
+</html>
+

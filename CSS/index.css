@@ -1,0 +1,55 @@
+.banner{
+    background-image: url("../images/pexels-karolina-2031292-3669288.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 90vh;
+}
+
+
+@media screen and (max-width:620px) {
+    .collapse {
+        margin-right: 170px;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .fixed-position {
+        top:0%;
+    }
+    .banner{
+        background-image: url("../images/pexels-karolina-2031292-3669288-576px.jpg");
+        height: 50vh;
+    }
+    #about_us_link{
+        display: none;
+    }
+}
+
+@media screen and (max-width:296px) {
+    .fixed-position {
+        padding: 8px 8px 8px 8px;
+        display: flex;
+        position:relative
+    }
+}
+
+#about_us_link{
+    color:#111111;
+    /* border: 1px solid rgb(38, 25, 25); */
+    background-color: rgba(200, 200, 200, 0.8);
+    border-radius: 16px;
+    padding: 8px 14px 8px 14px;
+    box-shadow: 4px 4px 4px 1px rgb(242, 242, 223);
+    text-decoration: none;
+} 
+
+article h1{
+    text-align: center;
+}
+article{
+    padding: 0.5em 1.0em 0.5em;
+}
+
+
+

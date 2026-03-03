@@ -1,0 +1,13 @@
+/* the animition from left in then right out */
+@keyframes bannerAnimation {
+    0% {transform: translateX(-40vw);opacity: 1;}
+    100%{transform: translateX(80vw);opacity: 1;}
+}
+
+.announcement>.text>span{
+    display: inline-block;
+    animation: bannerAnimation 25s linear infinite;
+}
+.announcement>.text{
+    overflow: hidden
+}
